@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PPT GOD Storyboard",
+  "type": "object",
+  "required": ["deck_title", "slides"],
+  "properties": {
+    "deck_title": {"type": "string"},
+    "audience": {"type": "string"},
+    "purpose": {"type": "string"},
+    "thesis": {"type": "string"},
+    "design_mode": {"enum": ["visual", "brand"]},
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["slide", "role", "title", "message", "content", "visual_intent", "importance", "editability", "asset_requirements"],
+        "properties": {
+          "slide": {"type": "integer", "minimum": 1},
+          "role": {"type": "string"},
+          "title": {"type": "string"},
+          "message": {"type": "string"},
+          "content": {"type": "array"},
+          "visual_intent": {"type": "string"},
+          "importance": {"enum": ["low", "normal", "high", "hero"]},
+          "editability": {"enum": ["E1", "E2", "E3"]},
+          "asset_requirements": {"type": "array"},
+          "source_refs": {"type": "array"},
+          "speaker_note": {"type": "string"},
+          "data": {},
+          "brand_constraints": {"type": "array"},
+          "layout_hint": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
